@@ -163,7 +163,7 @@ class VideoWebSocket {
 
         const loc = window.location;
         const wsProtocol = loc.protocol === 'https:' ? 'wss' : 'ws';
-        const wsUrl = `${wsProtocol}://${loc.host}/cameras/${wsPath}`;
+        const wsUrl = `${wsProtocol}://${loc.host}/ws/cameras/${wsPath}`;
 
         console.log('WebSocket URL:', wsUrl);
 

@@ -88,10 +88,10 @@ class WebSocketClient {
         const parts = path.split('/').filter(Boolean);
         console.log('parts:', parts);
 
-        if (parts.length === 3) {
+        if (parts.length === 4) {
             return {
-              cameraLabel: parts[1],
-              stream: parts[2]
+              cameraLabel: parts[2],
+              stream: parts[3]
             };
         } else {
             console.error('WebSocketClient-> Invalid path:', path);
