@@ -1,0 +1,8 @@
+Issues:
+ - DB Initialization might not be completed before other DB operation can start!
+ - Delete old files once the event is considered completed
+
+
+Features:
+ - Honor the size of the video files in the recording folder (rotation logic)
+ - Send notification with short video to Telegram

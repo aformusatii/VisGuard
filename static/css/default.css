@@ -1,0 +1,49 @@
+body {
+    background-color: #F1F3F4;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.menu-item {
+    margin-right: 5px;
+    background-color: #0d6efd;
+    padding: 10px;
+    color: #fff;
+}
+
+.menu-item.active {
+    background-color: #ffc107;
+    color: #000;
+}
+
+.video-player {
+    text-align: center;
+}
+
+.video-player video {
+    height: 500px;
+    width: 100%;
+}
+
+.btn .bi::before {
+    line-height: 1.5;
+}
+
+.timeline-box {
+    max-height: 100px;
+    display: block;
+    overflow-y: auto;    /* Trigger vertical scroll    */
+    overflow-x: hidden;  /* Hide the horizontal scroll */
+}

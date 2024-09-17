@@ -1,0 +1,29 @@
+httpServer:
+  port: 8080
+
+cameras:
+  - name: Back Garder
+    label: back_garden
+
+    streams:
+      mainStream:
+        url: rtsp://host:port/Streaming/Channels/101
+
+    eventSources:
+      - type: FileSystem
+        enabled: true
+        #folderPath: C:/temp/test_camera
+        folderPath: '\\192.168.100.3\camera1\ftp'
+
+      - type: HttpEndpoint
+        enabled: true
+        contextPath: /camera_back_garden
+
+    eventHandler:
+      timeout: 12s
+
+    videoRecorder:
+      enabled: true
+      inputStream: mainStream
+      folderPath: C://temp/videos_back_garden
+      maxFolderSize: 1024MB

@@ -1,0 +1,49 @@
+<div class="modal fade"
+     tabindex="-1"
+     role="dialog"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Camera Settings</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="playbackRate" class="form-label">Playback Rate</label>
+                        <!-- Select drop down control to choose playback speed-->
+                        <select id="playbackRate"
+                                class="form-select"
+                                ng-model="camera.playbackRate">
+                            <option value="1">1x</option>
+                            <option value="1.5">1.5x</option>
+                            <option value="2">2x</option>
+                            <option value="3">3x</option>
+                            <option value="4">4x</option>
+                            <option value="5">5x</option>
+                            <option value="6">6x</option>
+                            <option value="7">7x</option>
+                            <option value="8">8x</option> <!-- 8x is the maximum speed -->
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="playerHeight" class="form-label">Player Height</label>
+                        <!-- Select drop down control to choose playback speed-->
+                        <input id="playerHeight"
+                                class="form-control"
+                               type="number"
+                               step="50"
+                               min="100"
+                               max="2000"
+                               ng-model="camera.playerHeight">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger" ng-click="confirmAction()">Confirm</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="modal fade"
+     tabindex="-1"
+     role="dialog"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Camera Information</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <b>Total Size:</b> {{camera.totalSize | byteToMb}}MB
+                </div>
+                <div class="mb-3">
+                    <b>Max Size:</b> {{camera.videoRecorder.maxFolderSize}}
+                </div>
+                <div class="mb-3">
+                    <b>Folder:</b> {{camera.videoRecorder.folderPath}}
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
