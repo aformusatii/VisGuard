@@ -2,7 +2,7 @@
   "name": "Ghioceilor Camera",
   "short_name": "Ghioceilor Camera",
   "start_url": "/",
-  "theme_color": "#F1F3F4",
+  "theme_color": "#000000",
   "background_color": "#F1F3F4",
   "display": "standalone",
   "orientation": "portrait-primary",
