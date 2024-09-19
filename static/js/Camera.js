@@ -3,6 +3,7 @@ class Camera {
     constructor(cameras, $scope) {
         this.cameras = cameras;
         this.$scope = $scope;
+        this.selectedRecordId = null;
 
         const $this = this;
 

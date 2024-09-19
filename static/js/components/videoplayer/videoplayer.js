@@ -50,6 +50,10 @@ class VideoPlayerController {
 
         this.playbackRate = 1.0;
 
+        this.streamPath = null;
+        this.recordingPath = null;
+        this.type = null;
+
         this.jmuxer = new JMuxer({
             node: this.$videoPlayerStreaming.get(0),
             mode: 'video',
@@ -63,6 +67,8 @@ class VideoPlayerController {
                 }
             }
         });
+
+        document.addEventListener("visibilitychange", this.onVisibilityChange.bind(this));
     }
 
     prepare(type) {
@@ -84,6 +90,8 @@ class VideoPlayerController {
     }
 
     playStream(streamPath) {
+        this.streamPath = streamPath;
+
         console.log('Play Stream:', streamPath);
 
         this.prepare(VIDEO_TYPE_STREAM);
@@ -102,6 +110,8 @@ class VideoPlayerController {
     }
 
     playRecording(recordingPath) {
+        this.recordingPath = recordingPath;
+
         console.log('Play Recording:', recordingPath);
 
         this.prepare(VIDEO_TYPE_RECORDING);
@@ -126,6 +136,8 @@ class VideoPlayerController {
     }
 
     async play(type) {
+        this.type = type;
+
         try {
             switch (type) {
                 case VIDEO_TYPE_RECORDING:
@@ -152,6 +164,33 @@ class VideoPlayerController {
     setHeight(height) {
         this.$videoPlayerRecording.height(height);
         this.$videoPlayerStreaming.height(height);
+    }
+
+    onVisibilityChange() {
+        if (document.visibilityState === 'visible') {
+            console.log('Visibility Change: Visible');
+            this.resume();
+        } else {
+            console.log('Visibility Change: Invisible');
+            this.stop();
+        }
+    }
+
+    async resume() {
+        try {
+            switch (this.type) {
+                case VIDEO_TYPE_RECORDING:
+                    await this.playRecording(this.recordingPath);
+                    break;
+
+                case VIDEO_TYPE_STREAM:
+                    await this.playStream(this.streamPath);
+                    break;
+            }
+
+        } catch (e) {
+            console.log('Resume Error:', e);
+        }
     }
 
 }

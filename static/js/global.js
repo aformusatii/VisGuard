@@ -31,3 +31,11 @@ $(function() {
 
     window.addEventListener('resize', resizeHandler, true);
 });
+
+const isSet = function(value) {
+    return value !== null && typeof value !== 'undefined';
+}
+
+const isNotSet = function(value) {
+    return value === null || typeof value === 'undefined';
+}
