@@ -52,6 +52,11 @@ const DefaultController = function($rootScope, $scope, $location) {
         $scope.cameraSettingsModal.open(localSettings, confirmCameraSettings);
     }
 
+    $scope.copyUrl = function() {
+        const url = window.location.href;
+        copyToClipboard(url);
+    }
+
     /* ============================================================ */
     /*                    Initialize Page !!!                       */
     /* ============================================================ */
@@ -109,6 +114,7 @@ const playRecord = async function($scope, record) {
 const playOnline = async function($scope) {
     const streamPath = `${$scope.selectedCamera.label}/mainStream`;
     $scope.videoPlayer.playStream(streamPath);
+    $scope.selectedCamera.updatePageUrl();
 }
 
 function extractFileName(filePath) {

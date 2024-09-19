@@ -39,3 +39,27 @@ const isSet = function(value) {
 const isNotSet = function(value) {
     return value === null || typeof value === 'undefined';
 }
+
+const copyToClipboard = function(text) {
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(() => {
+            showInfo('URL copied to clipboard');
+        }).catch(err => {
+            showError('Oops, unable to copy' + err);
+        });
+    } else {
+        // Fallback method for older browsers or when API is not available
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+
+        document.body.appendChild(textArea);
+        textArea.select();
+        try {
+            document.execCommand('copy');
+            showInfo('URL copied to clipboard');
+        } catch (err) {
+            showError('Oops, unable to copy' + err);
+        }
+        document.body.removeChild(textArea);
+    }
+}
